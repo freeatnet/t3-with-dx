@@ -35,7 +35,14 @@ jobs:
       matrix:
         node-version: [18.x]
 
+    env:
+      EDGEDB_INSTANCE_NAME: t3_template
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+    - uses: edgedb/setup-edgedb@v1
+      with:
+        instance-name: ${{ env.EDGEDB_INSTANCE_NAME }}
     - uses: actions/checkout@v3
     - uses: actions/setup-node@v3
       with:
@@ -43,6 +50,8 @@ jobs:
         cache: 'yarn'
     - name: Set up the environment and install dependencies
       run: cp .env.example .env && yarn install --offline --frozen-lockfile
+    - name: Initialize EdgeDB instance
+      run: edgedb project init --non-interactive --link --server-instance ${{ env.EDGEDB_INSTANCE_NAME }}
     - run: yarn lint:ci:all
 
   typecheck:
@@ -54,7 +63,14 @@ jobs:
       matrix:
         node-version: [18.x]
 
+    env:
+      EDGEDB_INSTANCE_NAME: t3_template
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+    - uses: edgedb/setup-edgedb@v1
+      with:
+        instance-name: ${{ env.EDGEDB_INSTANCE_NAME }}
     - uses: actions/checkout@v3
     - uses: actions/setup-node@v3
       with:
@@ -62,4 +78,6 @@ jobs:
         cache: 'yarn'
     - name: Set up the environment and install dependencies
       run: cp .env.example .env && yarn install --offline --frozen-lockfile
+    - name: Initialize EdgeDB instance
+      run: edgedb project init --non-interactive --link --server-instance ${{ env.EDGEDB_INSTANCE_NAME }}
     - run: yarn tsc:typecheck
