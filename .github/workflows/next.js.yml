@@ -52,6 +52,7 @@ jobs:
       run: cp .env.example .env && yarn install --offline --frozen-lockfile
     - name: Initialize EdgeDB instance
       run: edgedb project init --non-interactive --link --server-instance ${{ env.EDGEDB_INSTANCE_NAME }}
+    - run: yarn setup
     - run: yarn lint:ci:all
 
   typecheck:
@@ -80,4 +81,5 @@ jobs:
       run: cp .env.example .env && yarn install --offline --frozen-lockfile
     - name: Initialize EdgeDB instance
       run: edgedb project init --non-interactive --link --server-instance ${{ env.EDGEDB_INSTANCE_NAME }}
+    - run: yarn setup
     - run: yarn tsc:typecheck
