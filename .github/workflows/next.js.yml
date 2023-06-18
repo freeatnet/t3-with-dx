@@ -9,6 +9,9 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
+env:
+  EDGEDB_INSTANCE_NAME: t3_template
+
 jobs:
   install:
     runs-on: ubuntu-latest
@@ -35,9 +38,6 @@ jobs:
       matrix:
         node-version: [18.x]
 
-    env:
-      EDGEDB_INSTANCE_NAME: t3_template
-
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
     - uses: edgedb/setup-edgedb@v1
@@ -52,6 +52,7 @@ jobs:
       run: cp .env.example .env && yarn install --offline --frozen-lockfile
     - name: Initialize EdgeDB instance
       run: edgedb project init --non-interactive --link --server-instance ${{ env.EDGEDB_INSTANCE_NAME }}
+    - run: yarn setup
     - run: yarn lint:ci:all
 
   typecheck:
@@ -63,9 +64,6 @@ jobs:
       matrix:
         node-version: [18.x]
 
-    env:
-      EDGEDB_INSTANCE_NAME: t3_template
-
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
     - uses: edgedb/setup-edgedb@v1
@@ -80,4 +78,5 @@ jobs:
       run: cp .env.example .env && yarn install --offline --frozen-lockfile
     - name: Initialize EdgeDB instance
       run: edgedb project init --non-interactive --link --server-instance ${{ env.EDGEDB_INSTANCE_NAME }}
+    - run: yarn setup
     - run: yarn tsc:typecheck

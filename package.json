@@ -8,17 +8,19 @@
   },
   "scripts": {
     "build": "next build",
-    "clean": "rimraf .next node_modules/.cache tsconfig.tsbuildinfo",
+    "clean": "rimraf .next node_modules/.cache src/server/edgedb/edgeql tsconfig.tsbuildinfo",
     "dev": "next dev",
     "edgedb": "edgedb",
+    "edgedb:generate-types": "npx @edgedb/generate edgeql-js --target esm --output-dir src/server/edgedb/edgeql/ --force-overwrite",
     "lint": "next lint --report-unused-disable-directives=error",
     "lint:ci:all": "next lint --report-unused-disable-directives=error --max-warnings=0",
     "lint:fix:all": "next lint --report-unused-disable-directives=error --fix",
     "lint:precommit": "next lint --report-unused-disable-directives=error --fix --max-warnings=0",
     "precommit": "lint-staged",
     "prepare": "(husky install || (echo 'WARN: husky not installed' && exit 0))",
+    "setup": "yarn edgedb:generate-types",
     "start": "next start",
-    "tsc:typecheck": "tsc -p tsconfig.json --noEmit"
+    "tsc:typecheck": "tsc --noEmit --pretty --project tsconfig.json"
   },
   "dependencies": {
     "@t3-oss/env-nextjs": "^0.4.1",
