@@ -12,15 +12,15 @@
     "dev": "next dev",
     "edgedb": "edgedb",
     "edgedb:generate-types": "npx @edgedb/generate edgeql-js --target esm --output-dir src/server/edgedb/edgeql/ --force-overwrite",
-    "lint": "next lint --report-unused-disable-directives=error",
-    "lint:ci:all": "next lint --report-unused-disable-directives=error --max-warnings=0",
-    "lint:fix:all": "next lint --report-unused-disable-directives=error --fix",
-    "lint:precommit": "next lint --report-unused-disable-directives=error --fix --max-warnings=0",
+    "lint": "SKIP_ENV_VALIDATION=1 next lint --report-unused-disable-directives=error",
+    "lint:ci:all": "SKIP_ENV_VALIDATION=1 next lint --report-unused-disable-directives=error --max-warnings=0",
+    "lint:fix:all": "SKIP_ENV_VALIDATION=1 next lint --report-unused-disable-directives=error --fix",
+    "lint:precommit": "SKIP_ENV_VALIDATION=1 next lint --report-unused-disable-directives=error --fix --max-warnings=0",
     "precommit": "lint-staged",
     "prepare": "(husky install || (echo 'WARN: husky not installed' && exit 0))",
     "setup": "yarn edgedb:generate-types",
     "start": "next start",
-    "tsc:typecheck": "tsc --noEmit --pretty --project tsconfig.json"
+    "tsc:typecheck": "SKIP_ENV_VALIDATION=1 tsc --noEmit --pretty --project tsconfig.json"
   },
   "dependencies": {
     "@t3-oss/env-nextjs": "^0.4.1",
@@ -32,6 +32,7 @@
     "clsx": "^1.2.1",
     "edgedb": "^1.3.1",
     "next": "^13.4.9",
+    "next-auth": "^4.22.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "superjson": "^1.12.4",

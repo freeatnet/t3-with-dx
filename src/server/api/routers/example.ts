@@ -1,6 +1,10 @@
 import { z } from "zod";
 
-import { createTRPCRouter, publicProcedure } from "~/server/api/trpc";
+import {
+  createTRPCRouter,
+  protectedProcedure,
+  publicProcedure,
+} from "~/server/api/trpc";
 import { e } from "~/server/edgedb";
 
 export const exampleRouter = createTRPCRouter({
@@ -16,5 +20,9 @@ export const exampleRouter = createTRPCRouter({
     const time = await query.run(edgedbClient);
 
     return time;
+  }),
+
+  getSecretMessage: protectedProcedure.query(() => {
+    return "you can now see this secret message!";
   }),
 });
