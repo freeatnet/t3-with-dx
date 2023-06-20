@@ -1,8 +1,11 @@
-import { type NextAuthOptions, type DefaultSession } from "next-auth";
-import DiscordProvider from "next-auth/providers/discord";
+import { type DefaultSession, type NextAuthOptions } from "next-auth";
+import { type JWT } from "next-auth/jwt";
+import GithubProvider from "next-auth/providers/github";
 
 import { env } from "~/env.mjs";
-// import { prisma } from "~/server/db";
+import { edgedbClient } from "~/server/edgedb";
+
+import { EdgeDBAdapter } from "./adapters/edgedb";
 
 /**
  * Module augmentation for `next-auth` types. Allows us to add custom properties to the `session`
@@ -25,6 +28,8 @@ declare module "next-auth" {
   // }
 }
 
+const edgedbAdapter = new EdgeDBAdapter(edgedbClient);
+
 /**
  * Options for NextAuth.js used to configure adapters, providers, callbacks, etc.
  *
@@ -32,20 +37,37 @@ declare module "next-auth" {
  */
 export const authOptions: NextAuthOptions = {
   callbacks: {
-    session: ({ session, user }) => ({
-      ...session,
-      user: {
-        ...session.user,
-        id: user.id,
-      },
-    }),
+    session: async (opts: {
+      session: DefaultSession;
+      token: JWT;
+      user: unknown; // not provided when using an adapter
+    }) => {
+      const { session, token } = opts;
+
+      const { sub } = token;
+      if (!sub) {
+        throw new Error("Unauthorized: no sub in token");
+      }
+
+      const user = await edgedbAdapter.getUser(sub);
+      if (!user) {
+        throw new Error("Unauthorized: user not found");
+      }
+
+      return {
+        ...session,
+        user: {
+          ...session.user,
+          id: user.id,
+        },
+      };
+    },
   },
-  // TODO: draw the rest of the owl here
-  // adapter: PrismaAdapter(prisma),
+  adapter: edgedbAdapter,
   providers: [
-    DiscordProvider({
-      clientId: env.DISCORD_CLIENT_ID,
-      clientSecret: env.DISCORD_CLIENT_SECRET,
+    GithubProvider({
+      clientId: env.GITHUB_CLIENT_ID,
+      clientSecret: env.GITHUB_CLIENT_SECRET,
     }),
     /**
      * ...add more providers here.
@@ -57,4 +79,7 @@ export const authOptions: NextAuthOptions = {
      * @see https://next-auth.js.org/providers/github
      */
   ],
+  session: {
+    strategy: "jwt",
+  },
 };
