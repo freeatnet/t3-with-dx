@@ -14,10 +14,10 @@
   dependencies:
     regenerator-runtime "^0.13.11"
 
-"@edgedb/generate@^0.2.0":
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/@edgedb/generate/-/generate-0.2.0.tgz#a97b937e95a99d78d7505112531ad9e245523368"
-  integrity sha512-CTxMPAy8RtTwesx8dGqhbZXXGIvupcOzRCkBCGYZIu0V1NOfF/DRCKxbN66V9nDPN7JHHlOYwxQ577Y/ThhF3Q==
+"@edgedb/generate@^0.2.1":
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/@edgedb/generate/-/generate-0.2.1.tgz#a2297da479acc6c2b5bb24f671004b49c432a36a"
+  integrity sha512-+srDKqD0iLAUyEWUcfZn+MwZjTjjrUXLC1m8xeHMFpOY/K4JBFk801BEYjlp5wWjBvmIE+1SF2b9HJlqIKQQJA==
   dependencies:
     chokidar "^3.5.3"
 
