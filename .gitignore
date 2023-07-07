@@ -9,7 +9,8 @@
 /coverage
 
 # database
-/src/server/edgedb/edgeql
+src/server/edgedb/edgeql
+src/server/**/*.query.ts
 
 # next.js
 /.next/
