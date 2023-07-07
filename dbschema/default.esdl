@@ -2,11 +2,19 @@ module default {
   abstract type HasTimestamps {
     required property createdAt -> datetime {
       readonly := true;
-      default := datetime_of_statement();
+      rewrite insert using (
+        datetime_of_statement()
+        if not __specified__.createdAt
+        else .createdAt
+      );
     }
 
     required property updatedAt -> datetime {
-      default := datetime_of_statement();
+      rewrite insert, update using (
+        datetime_of_statement()
+        if not __specified__.updatedAt
+        else .updatedAt
+      );
     }
   }
 }
