@@ -19,10 +19,10 @@
   dependencies:
     regenerator-runtime "^0.13.11"
 
-"@edgedb/generate@^0.3.1":
-  version "0.3.1"
-  resolved "https://registry.yarnpkg.com/@edgedb/generate/-/generate-0.3.1.tgz#09c4571488a44e398394ebe8ae4398be1862d154"
-  integrity sha512-+ymFSsTVqrq4LlQ0GZP9a4kovr/djSJ9Pokd1qyHeINoHqINxz7CW7zZC0lITXT+evVS3N941k2nEHD/b1rCrQ==
+"@edgedb/generate@^0.3.3":
+  version "0.3.3"
+  resolved "https://registry.yarnpkg.com/@edgedb/generate/-/generate-0.3.3.tgz#9af8564f392bb30bbbe91e0feaeaa6c4b59b2a68"
+  integrity sha512-2E/ReDiroz4fLUYszGf1MpYxUJ5yTURmLcho4LQEyFj9vIgITUmlwyqK7DaI3K6h1Zf8+1dGNehq0AkCaaVitA==
 
 "@eslint-community/eslint-utils@^4.2.0":
   version "4.4.0"
