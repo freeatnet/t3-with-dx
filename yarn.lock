@@ -288,27 +288,25 @@
   resolved "https://registry.yarnpkg.com/@total-typescript/ts-reset/-/ts-reset-0.4.2.tgz#c564c173ba09973968e1046c93965b7a257878a4"
   integrity sha512-vqd7ZUDSrXFVT1n8b2kc3LnklncDQFPvR58yUS1kEP23/nHPAO9l1lMjUfnPrXYYk4Hj54rrLKMW5ipwk7k09A==
 
-"@trpc/client@^10.38.5":
-  version "10.38.5"
-  resolved "https://registry.yarnpkg.com/@trpc/client/-/client-10.38.5.tgz#f689e76e20bd88ecd231b2fe36b65a022438bb3e"
-  integrity sha512-tpGUsoAP+3CD/1KRqMdWZ+zebvB68/86SaVPAYHaEDozTFLQdNqTe98DS/T0S4hfh7WCKbMSObj40SCzE8amKQ==
+"@trpc/client@^10.45.0":
+  version "10.45.0"
+  resolved "https://registry.yarnpkg.com/@trpc/client/-/client-10.45.0.tgz#67cf34857cfa7e77bc498cb837c2226a42d24bf4"
+  integrity sha512-m091R1qte9rvkvL8N1e/mzrbb8S4gb+Q4ZNJnEGDgd7kic/6a8DFgSciBTiCoSp0YwOTVhyQzSrrA/sZI6PhBg==
 
-"@trpc/next@^10.38.5":
-  version "10.38.5"
-  resolved "https://registry.yarnpkg.com/@trpc/next/-/next-10.38.5.tgz#bc60d67db9343f3b50a56d12532920c2980deb10"
-  integrity sha512-sSPEiaNtNIH3psU+RiGtfLWjLbHFaD66pqcPvUR3C686u7A3TDFXznez9K20Ii0LRwpyQOWCz2Doe51oj7TL6w==
-  dependencies:
-    react-ssr-prepass "^1.5.0"
+"@trpc/next@^10.45.0":
+  version "10.45.0"
+  resolved "https://registry.yarnpkg.com/@trpc/next/-/next-10.45.0.tgz#25422a28ef441445d5a3281c0aa6a0968381866d"
+  integrity sha512-saXajAb5GBpos9BNEtq/BeTOxmM4oCP3kyuGlMopNtHoacr71xHCItFnLsPWffM4DVW88uOXCFWaOtpOs5ThBw==
 
-"@trpc/react-query@^10.38.5":
-  version "10.38.5"
-  resolved "https://registry.yarnpkg.com/@trpc/react-query/-/react-query-10.38.5.tgz#0a36138d2a2221cfb68339c172addbd57ec4914b"
-  integrity sha512-cGpKfiQen3ba3lTII3+Y6Hm3KnC60AS9n2AYt07I7LZx/GknsGHq4h570imdIxr6Qb5LtYe3DFV13kzbm+yGeA==
+"@trpc/react-query@^10.45.0":
+  version "10.45.0"
+  resolved "https://registry.yarnpkg.com/@trpc/react-query/-/react-query-10.45.0.tgz#848929e79399119e860d0212f8233d2ee83328c9"
+  integrity sha512-MMc2pLwoaLZVwvLQyzJv3uEmdG3lORhifhVzR/drtavwDYwt+OEvH0w3s1zC7RaDdFpc6Nj2kkpHmdoU7BlAAw==
 
-"@trpc/server@^10.38.5":
-  version "10.38.5"
-  resolved "https://registry.yarnpkg.com/@trpc/server/-/server-10.38.5.tgz#bb42d43e5cc6eec33069dcfce1974872ab547734"
-  integrity sha512-J0d2Y3Gpt2bMohOshPBfuzDqVrPaE3OKEDtJYgTmLk5t1pZy3kXHQep4rP2LEIr+ELbmkelhcrSvvFLA+4/w/Q==
+"@trpc/server@^10.45.0":
+  version "10.45.0"
+  resolved "https://registry.yarnpkg.com/@trpc/server/-/server-10.45.0.tgz#be43a1a6e7f41ae86534716933717e80218ccdcb"
+  integrity sha512-2Fwzv6nqpE0Ie/G7PeS0EVR89zLm+c1Mw7T+RAGtU807j4oaUx0zGkBXTu5u9AI+j+BYNN2GZxJcuDTAecbr1A==
 
 "@types/eslint@^8.44.6":
   version "8.44.6"
@@ -2709,11 +2707,6 @@ react-is@^16.13.1:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
-
-react-ssr-prepass@^1.5.0:
-  version "1.5.0"
-  resolved "https://registry.yarnpkg.com/react-ssr-prepass/-/react-ssr-prepass-1.5.0.tgz#bc4ca7fcb52365e6aea11cc254a3d1bdcbd030c5"
-  integrity sha512-yFNHrlVEReVYKsLI5lF05tZoHveA5pGzjFbFJY/3pOqqjGOmMmqx83N4hIjN2n6E1AOa+eQEUxs3CgRnPmT0RQ==
 
 react@18.2.0:
   version "18.2.0"
